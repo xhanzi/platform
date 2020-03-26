@@ -16,5 +16,5 @@ yarn-error.log
 /.phpintel
 /public/upload/
 /composer.lock
-/docker/mysql
+/docker/mydata
 *.key

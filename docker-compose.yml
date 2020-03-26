@@ -4,17 +4,17 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
-    image: php:alpine
+      dockerfile: docker-php
     container_name: app
     restart: unless-stopped
     tty: true
     environment:
       SERVICE_NAME: app
-      SERVICE_TAGS: dev
     working_dir: /var/www
     volumes:
       - ./:/var/www
+    networks:
+      - app
 
   nginx:
     image: nginx:alpine
@@ -22,30 +22,40 @@ services:
     restart: unless-stopped
     tty: true
     volumes:
-      - ./:/var/www
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
     ports:
       - 80:80
       - 443:443
+    networks:
+      - app
 
   mysql:
-    image: mysql
+    image: wangxian/alpine-mysql
     container_name: mysql
     restart: unless-stopped
     tty: true
     volumes:
-      - ./docker/mysql/:/var/lib/mysql
+      - ./docker/mydata:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: 123456
       MYSQL_DATABASE: platform
-      SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     ports:
       - 3306:3306
+    networks:
+      - app
 
   redis:
     image: redis:alpine
     container_name: redis
     restart: unless-stopped
+    environment:
+      SERVICE_NAME: redis
     ports:
       - 6379:6379
+    networks:
+      - app
+
+networks:
+  app:
+    driver: bridge
