@@ -1,4 +1,8 @@
 <?php
+/**
+ * @author  Eddy <cumtsjh@163.com>
+ */
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -8,7 +12,7 @@ use Illuminate\View\View;
 
 class LogController extends Controller
 {
-    protected $formNames = ['user_name', 'url'];
+    protected $formNames = ['user_name', 'url', 'data'];
 
     public function __construct()
     {
@@ -35,7 +39,7 @@ class LogController extends Controller
      */
     public function list(Request $request)
     {
-        $perPage = (int) $request->get('limit', 20);
+        $perPage = (int) $request->get('limit', 50);
         $this->formNames[] = 'created_at';
         $condition = $request->only($this->formNames);
 

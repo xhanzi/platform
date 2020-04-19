@@ -1,4 +1,8 @@
 <?php
+/**
+ * @author  Eddy <cumtsjh@163.com>
+ */
+
 namespace App\Model\Admin;
 
 class EntityField extends Model
@@ -23,7 +27,7 @@ class EntityField extends Model
     }
 
     public static $listField = [
-        'entityName' => '模型',
+        //'entityName' => '模型',
         'name' => '字段名称',
         'type' => '字段类型',
         'form_name' => '表单名称',

@@ -22,7 +22,7 @@
             </form>
         </div>
         <div class="layui-card-body">
-            <table class="layui-table" lay-data="{url:'{{ route('admin::log.list') }}?{{ request()->getQueryString() }}', page:true, limit:20, id:'test'}" lay-filter="test">
+            <table class="layui-table" lay-data="{url:'{{ route('admin::log.list') }}?{{ request()->getQueryString() }}', page:true, limit:50, id:'test'}" lay-filter="test">
                 <thead>
                 <tr>
                     <th lay-data="{field:'id', width:80, sort: true}">ID</th>

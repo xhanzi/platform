@@ -1,4 +1,11 @@
 <?php
+/**
+ * Date: 2019/2/25 Time: 9:31
+ *
+ * @author  Eddy <cumtsjh@163.com>
+ * @version v1.0.0
+ */
+
 use App\Foundation\Regexp;
 
 Route::group(

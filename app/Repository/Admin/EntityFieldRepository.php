@@ -1,4 +1,8 @@
 <?php
+/**
+ * @author  Eddy <cumtsjh@163.com>
+ */
+
 namespace App\Repository\Admin;
 
 use App\Model\Admin\EntityField;
@@ -10,11 +14,12 @@ class EntityFieldRepository
 
     public static function list($perPage, $condition = [])
     {
-        $data = EntityField::query()->where(function ($query) use ($condition) {
+        $data = EntityField::query()
+            ->where(function ($query) use ($condition) {
                 Searchable::buildQuery($query, $condition);
             })
             ->with('entity')
-            ->orderBy('id', 'asc')
+            ->orderBy('id', 'desc')
             ->paginate($perPage);
         $formTypes = config('light.form_type');
         $data->transform(function ($item) use ($formTypes) {

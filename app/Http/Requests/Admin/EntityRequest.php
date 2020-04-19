@@ -26,7 +26,7 @@ class EntityRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:20',
+            'name' => 'required|max:50',
             'table_name' => ['required', 'max:64', 'regex:/^[0-9a-zA-Z$_]+$/'],
             'description' => 'max:255',
         ];
@@ -41,7 +41,7 @@ class EntityRequest extends FormRequest
     {
         return [
             'name.required' => '名称不能为空',
-            'name.max' => '名称长度不能大于20',
+            'name.max' => '名称长度不能大于50',
             'table_name.regex' => '数据库表名不合规范',
         ];
     }

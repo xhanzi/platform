@@ -1,4 +1,11 @@
 <?php
+/**
+ * Date: 2019/4/1 Time: 16:49
+ *
+ * @author  Eddy <cumtsjh@163.com>
+ * @version v1.0.0
+ */
+
 namespace App\Http\Requests\Front;
 
 use App\Foundation\Regexp;
@@ -24,9 +31,9 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => [
+            'phone' => [
                 'required',
-                'regex:/' . Regexp::EMAIL . '/',
+                'regex:/' . Regexp::PHONE . '/',
             ],
             'password' => 'required',
         ];
@@ -40,8 +47,8 @@ class LoginRequest extends FormRequest
     public function messages()
     {
         return [
-            'email.required' => 'Email不能为空',
-            'email.regex' => 'Email格式有误',
+            'phone.required' => '手机号不能为空',
+            'phone.regex' => '手机号格式有误',
             'password.required' => '密码不能为空',
         ];
     }

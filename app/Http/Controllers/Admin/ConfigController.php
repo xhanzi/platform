@@ -1,4 +1,8 @@
 <?php
+/**
+ * @author  Eddy <cumtsjh@163.com>
+ */
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -42,7 +46,7 @@ class ConfigController extends Controller
      */
     public function list(Request $request)
     {
-        $perPage = (int) $request->get('limit', 20);
+        $perPage = (int) $request->get('limit', 50);
         $this->formNames[] = 'created_at';
         $condition = $request->only($this->formNames);
         if (isset($condition['group'])) {

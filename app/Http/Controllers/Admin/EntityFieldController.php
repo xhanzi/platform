@@ -1,4 +1,8 @@
 <?php
+/**
+ * @author  Eddy <cumtsjh@163.com>
+ */
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -27,7 +31,6 @@ class EntityFieldController extends Controller
     public function __construct()
     {
         parent::__construct();
-
         $this->breadcrumb[] = ['title' => '模型字段列表', 'url' => route('admin::entityField.index')];
     }
 
@@ -50,12 +53,10 @@ class EntityFieldController extends Controller
      */
     public function list(Request $request)
     {
-        $perPage = (int) $request->get('limit', 20);
+        $perPage = (int) $request->get('limit', 50);
         $this->formNames[] = 'created_at';
         $condition = $request->only($this->formNames);
-
         $data = EntityFieldRepository::list($perPage, $condition);
-
         return $data;
     }
 

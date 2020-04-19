@@ -22,7 +22,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">字段名称</label>
                     <div class="layui-input-block">
-                        <input @if(isset($id)) disabled @endif type="text" name="name" required  lay-verify="required" autocomplete="off" class="layui-input" value="{{ $model->name ?? 'title'  }}" placeholder="只能包含英文字母和数字，长度不超过64（标题的字段名称应该为title）">
+                        <input @if(isset($id)) disabled @endif type="text" name="name" required  lay-verify="required" autocomplete="off" class="layui-input" value="{{ $model->name ?? ''  }}" placeholder="只能包含英文字母和数字，长度不超过64">
                     </div>
                 </div>
                     <div class="layui-form-item">

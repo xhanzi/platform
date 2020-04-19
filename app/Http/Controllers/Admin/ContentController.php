@@ -1,4 +1,8 @@
 <?php
+/**
+ * @author  Eddy <cumtsjh@163.com>
+ */
+
 namespace App\Http\Controllers\Admin;
 
 use App\Events\ContentCreated;
@@ -77,7 +81,7 @@ class ContentController extends Controller
             return $result;
         }
 
-        $perPage = (int) $request->get('limit', 20);
+        $perPage = (int) $request->get('limit', 50);
         $this->formNames = array_merge(['created_at'], EntityFieldRepository::getFields($entity));
         $condition = $request->only($this->formNames);
 
@@ -92,7 +96,7 @@ class ContentController extends Controller
      */
     public function create($entity)
     {
-        $this->breadcrumb[] = ['title' => "新增{$this->entity->name}内容", 'url' => ''];
+        $this->breadcrumb[] = ['title' => "新增{$this->entity->name}", 'url' => ''];
         $view = $this->getAddOrEditViewPath();
 
         return view($view, [

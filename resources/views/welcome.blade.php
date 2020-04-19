@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>学汉字 | xhanzi.com</title>
+        <title>Laravel</title>
 
         <!-- Styles -->
         <style>
@@ -66,10 +66,14 @@
         $user = \Auth::guard('member')->user();
     @endphp
         <div class="flex-center position-ref full-height">
+
             <div class="content">
+                <div class="title m-b-md">
+                    LightCMS
+                </div>
                 <div class="m-b-md">
                     @foreach($entities as $entity)
-                        <a target="_blank" href="{{ route('web::entity.content.list', ['entityId' => $entity->id]) }}">{{ $entity->name }}</a>
+                        <a target="_blank" href="{{ route('web::entity.content.list', ['entityId' => $entity->id]) }}">{{ $entity->name }}</a><hr>
                     @endforeach
                 </div>
                 <div class="m-b-md">
@@ -79,6 +83,9 @@
                         <a href="{{ route('member::login.show') }}">用户登录</a>
                         <a href="{{ route('admin::login.show') }}">后台登录</a>
                     @endif
+                </div>
+                <div class="m-b-md">
+                    前台功能仅供参考，无需使用可以删除相关路由（routes/web.php、routes/member.php）
                 </div>
             </div>
         </div>

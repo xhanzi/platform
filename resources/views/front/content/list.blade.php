@@ -15,7 +15,7 @@
 
         <div class="pl-4">
             <a class="text-black text-base no-underline hover:no-underline font-extrabold text-xl"  href="/">
-                学汉字 | xhanzi.com
+                LightCMS
             </a>
         </div>
 
@@ -62,7 +62,7 @@
                 <div class="px-8">
                     <h3 class="font-bold text-black">关于</h3>
                     <p class="py-4 text-grey-dark text-sm">
-                        学汉字 | xhanzi.com
+                        lightCMS是一个基于Laravel开发的轻量级CMS系统，也可以作为一个通用的后台管理框架使用。
                     </p>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                     <h3 class="font-bold text-black">链接</h3>
                     <ul class="list-reset items-center text-sm pt-3">
                         <li>
-                            <a class="inline-block text-grey-dark no-underline hover:text-black hover:text-underline py-1" href="https://xhanzi.com" target="_blank">学汉字 | xhanzi.com</a>
+                            <a class="inline-block text-grey-dark no-underline hover:text-black hover:text-underline py-1" href="https://github.com/eddy8/lightCMS" target="_blank">GitHub</a>
                         </li>
                     </ul>
                 </div>

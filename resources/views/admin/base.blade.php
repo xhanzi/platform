@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>@isset($breadcrumb){{ last($breadcrumb)['title'] }}@endisset - {{ config('app.name') }}</title>
     <link rel="stylesheet" href="/public/vendor/layui-v2.4.5/css/layui.css" media="all">
-    <link rel="stylesheet" href="/public/admin/css/Admin.css" media="all">
+    <link rel="stylesheet" href="/public/admin/css/lightCMSAdmin.css" media="all">
     @yield('css')
 </head>
 <body class="layui-layout-body">
@@ -65,16 +65,16 @@
                     @endif
                 @endforeach
                 @endisset
-                    @isset($autoMenu)
-                        <li class="layui-nav-item layui-nav-itemed">
-                            <a class="" href="javascript:;">系统菜单</a>
-                            <dl class="layui-nav-child">
-                                @foreach($autoMenu as $v)
-                                    <dd @if(isset($entity) && $v['id'] == intval($entity)) class="layui-this" @endif><a href="{{ $v['url'] }}">{{ $v['name'] }}</a></dd>
-                                @endforeach
-                            </dl>
-                        </li>
-                    @endisset
+                @isset($autoMenu)
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">系统菜单</a>
+                        <dl class="layui-nav-child">
+                            @foreach($autoMenu as $v)
+                                <dd @if(isset($entity) && $v['id'] == intval($entity)) class="layui-this" @endif><a href="{{ $v['url'] }}">{{ $v['name'] }}</a></dd>
+                            @endforeach
+                        </dl>
+                    </li>
+                @endisset
             </ul>
         </div>
     </div>
@@ -88,7 +88,7 @@
 
     <div class="layui-footer">
         <!-- 底部固定区域 -->
-        {{ config('app.name') }}
+        &copy; 2020 {{ config('app.name') }}
     </div>
 </div>
 <script src="/public/vendor/layui-v2.4.5/layui.all.js"></script>

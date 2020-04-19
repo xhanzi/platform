@@ -9,32 +9,26 @@
             <form class="layui-form" action="@if(isset($id)){{ route('admin::user.update', ['id' => $id]) }}@else{{ route('admin::user.save') }}@endif" method="post">
                 @if(isset($id)) {{ method_field('PUT') }} @endif
                 <div class="layui-form-item">
-                    <label class="layui-form-label">名称</label>
+                    <label class="layui-form-label">手机号</label>
                     <div class="layui-input-block">
-                        <input type="text" name="name" required lay-verify="required" autocomplete="off" class="layui-input" value="{{ $model->name ?? ''}}">
+                        <input type="text" name="phone" required  lay-verify="required" autocomplete="off" class="layui-input" value="{{ $model->phone ?? ''  }}">
                     </div>
                 </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label">Email</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="email" required lay-verify="required" autocomplete="off" class="layui-input" value="{{ $model->email ?? ''}}">
+                    @if(!isset($id))
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">密码</label>
+                        <div class="layui-input-inline">
+                            <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">密码6到18位，不能为纯数字或纯字母</div>
                     </div>
-                </div>
-                @if(!isset($id))
-                <div class="layui-form-item">
-                    <label class="layui-form-label">密码</label>
-                    <div class="layui-input-inline">
-                        <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                    @endif
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">是否启用</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="status" lay-skin="switch" lay-text="启用|禁用" value="1" @if(isset($model) && $model->status == App\Model\Admin\User::STATUS_ENABLE) checked @endif>
+                        </div>
                     </div>
-                    <div class="layui-form-mid layui-word-aux">密码6到18位，不能为纯数字或纯字母</div>
-                </div>
-                @endif
-                <div class="layui-form-item">
-                    <label class="layui-form-label">是否启用</label>
-                    <div class="layui-input-block">
-                        <input type="checkbox" name="status" lay-skin="switch" lay-text="启用|禁用" value="1" @if(isset($model) && $model->status == App\Model\Admin\User::STATUS_ENABLE) checked @endif>
-                    </div>
-                </div>
                 <div class="layui-form-item">
                     <div class="layui-input-block">
                         <button class="layui-btn" lay-submit lay-filter="formAdminUser" id="submitBtn">提交</button>

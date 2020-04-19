@@ -1,4 +1,4 @@
-.xhanzi-user-login {
+.lightcms-user-login {
     position: relative;
     left: 0;
     top: 0;
@@ -6,21 +6,21 @@
     min-height: 100%;
     box-sizing: border-box;
 }
-#user-login, .xhanzi-user-display-show {
+#user-login, .lightcms-user-display-show {
     display: block!important;
 }
-.xhanzi-user-login-main {
+.lightcms-user-login-main {
     width: 375px;
     margin: 0 auto;
     box-sizing: border-box;
 }
-.xhanzi-user-login-header {
+.lightcms-user-login-header {
     text-align: center;
 }
-.xhanzi-user-login-box {
+.lightcms-user-login-box {
     padding: 20px;
 }
-.xhanzi-user-login-icon {
+.lightcms-user-login-icon {
     position: absolute;
     left: 1px;
     top: 1px;
@@ -29,7 +29,7 @@
     text-align: center;
     color: #d2d2d2;
 }
-.xhanzi-user-login-footer {
+.lightcms-user-login-footer {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -40,13 +40,13 @@
     box-sizing: border-box;
     color: rgba(0,0,0,.5);
 }
-.xhanzi-user-login-body .layui-form-item {
+.lightcms-user-login-body .layui-form-item {
     position: relative;
 }
-.xhanzi-user-login-body .layui-form-item .layui-input {
+.lightcms-user-login-body .layui-form-item .layui-input {
     padding-left: 38px;
 }
-.xhanzi-user-login-codeimg {
+.lightcms-user-login-codeimg {
     max-height: 38px;
     width: 100%;
     cursor: pointer;

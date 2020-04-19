@@ -1,4 +1,11 @@
 <?php
+/**
+ * Date: 2019/3/16 Time: 13:42
+ *
+ * @author  Eddy <cumtsjh@163.com>
+ * @version v1.0.0
+ */
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;

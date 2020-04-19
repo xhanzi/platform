@@ -6,17 +6,12 @@
     "type": "project",
     "require": {
         "php": "^7.2",
-        "barryvdh/laravel-debugbar": "^3.2",
         "doctrine/dbal": "^2.5",
         "fideloper/proxy": "^4.0",
-        "kuangjy/omnipay-qpay": "^3.0",
         "laravel/framework": "^6.0",
         "laravel/helpers": "^1.1",
         "laravel/tinker": "~1.0",
-        "league/omnipay": "^3.0",
-        "lokielse/omnipay-wechatpay": "^3.0",
         "mews/captcha": "^3.0",
-        "oscarafdev/migrations-generator": "^2.0",
         "overtrue/socialite": "^2.0",
         "spatie/laravel-permission": "^3.0"
     },

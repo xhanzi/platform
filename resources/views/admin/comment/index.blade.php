@@ -38,7 +38,7 @@
             });
         </script>
         <div class="layui-card-body">
-            <table class="layui-table" lay-data="{url:'{{ route('admin::comment.list') }}?{{ request()->getQueryString() }}', page:true, limit:20, parseData:function(res) { $.each(res.data, function(i, t) { res.data[i].content = emojify.replace(t.content) }) }}" id="table-comment">
+            <table class="layui-table" lay-data="{url:'{{ route('admin::comment.list') }}?{{ request()->getQueryString() }}', page:true, limit:50, parseData:function(res) { $.each(res.data, function(i, t) { res.data[i].content = emojify.replace(t.content) }) }}" id="table-comment">
                 <thead>
                 <tr>
                     <th lay-data="{field:'id', width:80, sort: true}">ID</th>

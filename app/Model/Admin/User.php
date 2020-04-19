@@ -1,16 +1,19 @@
 <?php
+/**
+ * @author  Eddy <cumtsjh@163.com>
+ */
+
 namespace App\Model\Admin;
 
 class User extends \App\Model\Front\User
 {
     public static $listField = [
-        'name' => '名称',
-        'email' => 'Email',
+        'phone' => '手机号',
         'statusText' => '状态'
     ];
 
     public static $searchField = [
-        'email' => 'Email'
+        'phone' => '手机号'
     ];
 
     public function comments()

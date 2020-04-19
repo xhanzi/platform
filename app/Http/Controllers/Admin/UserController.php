@@ -1,4 +1,8 @@
 <?php
+/**
+ * @author  Eddy <cumtsjh@163.com>
+ */
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -12,34 +16,34 @@ use Illuminate\View\View;
 
 class UserController extends Controller
 {
-    protected $formNames = ['name', 'email', 'status'];
+    protected $formNames = ['phone', 'status'];
 
     public function __construct()
     {
         parent::__construct();
 
-        $this->breadcrumb[] = ['title' => '学生列表', 'url' => route('admin::user.index')];
+        $this->breadcrumb[] = ['title' => '会员列表', 'url' => route('admin::user.index')];
     }
 
     /**
-     * 学生管理-学生列表
+     * 会员管理-会员列表
      *
      */
     public function index()
     {
-        $this->breadcrumb[] = ['title' => '学生列表', 'url' => ''];
+        $this->breadcrumb[] = ['title' => '会员列表', 'url' => ''];
         return view('admin.user.index', ['breadcrumb' => $this->breadcrumb]);
     }
 
     /**
-     * 学生管理-学生列表数据接口
+     * 会员管理-会员列表数据接口
      *
      * @param Request $request
      * @return array
      */
     public function list(Request $request)
     {
-        $perPage = (int) $request->get('limit', 20);
+        $perPage = (int) $request->get('limit', 50);
         $this->formNames[] = 'created_at';
         $condition = $request->only($this->formNames);
 
@@ -49,17 +53,17 @@ class UserController extends Controller
     }
 
     /**
-     * 学生管理-新增学生
+     * 会员管理-新增会员
      *
      */
     public function create()
     {
-        $this->breadcrumb[] = ['title' => '新增学生', 'url' => ''];
+        $this->breadcrumb[] = ['title' => '新增会员', 'url' => ''];
         return view('admin.user.add', ['breadcrumb' => $this->breadcrumb]);
     }
 
     /**
-     * 学生管理-保存学生
+     * 会员管理-保存会员
      *
      * @param UserRequest $request
      * @return array
@@ -77,28 +81,28 @@ class UserController extends Controller
         } catch (QueryException $e) {
             return [
                 'code' => 1,
-                'msg' => '新增失败：' . (Str::contains($e->getMessage(), 'Duplicate entry') ? '当前学生已存在' : '其它错误'),
+                'msg' => '新增失败：' . (Str::contains($e->getMessage(), 'Duplicate entry') ? '当前会员已存在' : '其它错误'),
                 'redirect' => false
             ];
         }
     }
 
     /**
-     * 学生管理-编辑学生
+     * 会员管理-编辑会员
      *
      * @param int $id
      * @return View
      */
     public function edit($id)
     {
-        $this->breadcrumb[] = ['title' => '编辑学生', 'url' => ''];
+        $this->breadcrumb[] = ['title' => '编辑会员', 'url' => ''];
 
         $model = UserRepository::find($id);
         return view('admin.user.add', ['id' => $id, 'model' => $model, 'breadcrumb' => $this->breadcrumb]);
     }
 
     /**
-     * 学生管理-更新学生
+     * 会员管理-更新会员
      *
      * @param UserRequest $request
      * @param int $id
@@ -120,14 +124,14 @@ class UserController extends Controller
         } catch (QueryException $e) {
             return [
                 'code' => 1,
-                'msg' => '编辑失败：' . (Str::contains($e->getMessage(), 'Duplicate entry') ? '当前学生已存在' : '其它错误'),
+                'msg' => '编辑失败：' . (Str::contains($e->getMessage(), 'Duplicate entry') ? '当前会员已存在' : '其它错误'),
                 'redirect' => false
             ];
         }
     }
 
     /**
-     * 学生管理-删除学生
+     * 会员管理-删除会员
      *
      * @param int $id
      */

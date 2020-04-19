@@ -171,6 +171,10 @@ Route::delete('/{{-$model_plural-}}/{id}', '{{-$model_uc_first-}}Controller@dele
 
 !startrepository=Repository/Admin/{{-$model_uc_first-}}Repository.php
 <?php
+/**
+ * @author  Eddy <cumtsjh@163.com>
+ */
+
 namespace App\Repository\Admin;
 
 use App\Model\Admin\{{-$model_uc_first-}};
@@ -283,6 +287,10 @@ class {{-$model_uc_first-}}Request extends FormRequest
 
 !startcontroller=Http/Controllers/Admin/{{-$model_uc_first-}}Controller.php
 <?php
+/**
+ * @author  Eddy <cumtsjh@163.com>
+ */
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -432,6 +440,10 @@ class {{-$model_uc_first-}}Controller extends Controller
 
 !startmodel=Model/Admin/{{-$model_uc_first-}}.php
 <?php
+/**
+ * @author  Eddy <cumtsjh@163.com>
+ */
+
 namespace App\Model\Admin;
 
 class {{-$model_uc_first-}} extends Model

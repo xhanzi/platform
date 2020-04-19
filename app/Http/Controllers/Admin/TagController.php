@@ -1,4 +1,8 @@
 <?php
+/**
+ * @author  Eddy <cumtsjh@163.com>
+ */
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -40,7 +44,7 @@ class TagController extends Controller
      */
     public function list(Request $request)
     {
-        $perPage = (int) $request->get('limit', 20);
+        $perPage = (int) $request->get('limit', 50);
         $condition = $request->only($this->formNames);
 
         $data = TagRepository::list($perPage, $condition);

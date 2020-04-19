@@ -1,4 +1,11 @@
 <?php
+/**
+ * Date: 2019/2/25 Time: 16:15
+ *
+ * @author  Eddy <cumtsjh@163.com>
+ * @version v1.0.0
+ */
+
 namespace App\Repository\Admin;
 
 use Spatie\Permission\Models\Role;

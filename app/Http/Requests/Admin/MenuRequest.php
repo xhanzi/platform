@@ -30,9 +30,9 @@ class MenuRequest extends FormRequest
             Menu::STATUS_ENABLE,
         ];
         return [
-            'name' => 'required|max:20',
+            'name' => 'required|max:50',
             'route' => 'required|max:100',
-            'group' => 'max:20',
+            'group' => 'max:50',
             'remark' => 'max:255',
             'status' => [
                 Rule::in($status_in),

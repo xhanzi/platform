@@ -1,4 +1,8 @@
 <?php
+/**
+ * @author  Eddy <cumtsjh@163.com>
+ */
+
 namespace App\Model\Admin;
 
 class Log extends Model
@@ -7,7 +11,8 @@ class Log extends Model
 
     public static $searchField = [
         'user_name' => '用户',
-        'url' => 'URL'
+        'url' => 'URL',
+        'data' => 'data',
     ];
 
     public static $listField = [

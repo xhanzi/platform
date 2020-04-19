@@ -1,9 +1,14 @@
 <?php
+/**
+ * @author  Eddy <cumtsjh@163.com>
+ */
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\EntityRequest;
 use App\Repository\Admin\EntityRepository;
+use App\Model\Admin\Entity;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -43,7 +48,7 @@ class EntityController extends Controller
      */
     public function list(Request $request)
     {
-        $perPage = (int) $request->get('limit', 20);
+        $perPage = (int) $request->get('limit', 50);
         $condition = $request->only($this->formNames);
 
         $data = EntityRepository::list($perPage, $condition);
@@ -188,6 +193,29 @@ class EntityController extends Controller
                 'code' => 0,
                 'msg' => '复制成功',
                 'reload' => true
+            ];
+        } catch (\RuntimeException $e) {
+            return [
+                'code' => 5,
+                'msg' => $e->getMessage(),
+            ];
+        }
+    }
+
+    /**
+     * 模型管理-添加默认菜单
+     *
+     * @param integer $id
+     * @return array
+     */
+    public function menu($id)
+    {
+        try {
+            $entity = Entity::findOrFail($id);
+            EntityRepository::addDefaultMenus($entity);
+            return [
+                'code' => 0,
+                'msg' => '添加成功',
             ];
         } catch (\RuntimeException $e) {
             return [

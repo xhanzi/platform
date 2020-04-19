@@ -1,4 +1,11 @@
 <?php
+/**
+ * Date: 2019/2/25 Time: 9:31
+ *
+ * @author  Eddy <cumtsjh@163.com>
+ * @version v1.0.0
+ */
+
 use Illuminate\Support\Str;
 
 Route::group(
@@ -76,6 +83,7 @@ Route::group(
 
             // 模型
             Route::post('/entities/{id}/copy', 'EntityController@copy')->name('entity.copy');
+            Route::post('/entities/{id}/menu', 'EntityController@menu')->name('entity.menu');
 
             // 自动加载生成的其它路由
             foreach (new DirectoryIterator(base_path('routes/auto')) as $f) {

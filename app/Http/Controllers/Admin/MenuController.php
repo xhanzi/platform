@@ -1,4 +1,11 @@
 <?php
+/**
+ * Date: 2019/2/25 Time: 14:49
+ *
+ * @author  Eddy <cumtsjh@163.com>
+ * @version v1.0.0
+ */
+
 namespace App\Http\Controllers\Admin;
 
 use App\Events\MenuUpdated;
@@ -43,7 +50,7 @@ class MenuController extends Controller
      */
     public function list(Request $request)
     {
-        $perPage = (int) $request->get('limit', 20);
+        $perPage = (int) $request->get('limit', 50);
         $action = $request->get('action');
         $this->formNames[] = 'created_at';
         $condition = $request->only($this->formNames);

@@ -465,7 +465,7 @@
                                         tagify = new Tagify(input, {
                                             dropdown: {
                                                 enabled: 1,
-                                                maxItems: 20,
+                                                maxItems: 50,
                                                 highlightFirst: true
                                             }
                                         });
@@ -479,7 +479,7 @@
                                         tagify.settings.whitelist = [];
                                         tagify.dropdown.hide.call(tagify);
                                         $.ajax({
-                                            url: "{{ route('admin::tag.list') }}" + "?page=1&limit=20" + "&name=" + value,
+                                            url: "{{ route('admin::tag.list') }}" + "?page=1&limit=50" + "&name=" + value,
                                             method: "GET",
                                             dataType: "json",
                                             success: function (d) {

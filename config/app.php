@@ -181,8 +181,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        // enable debugbar 2020-03-19
-        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
@@ -232,9 +230,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
-        // debugbar -- 2020-03-19
-        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        //'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

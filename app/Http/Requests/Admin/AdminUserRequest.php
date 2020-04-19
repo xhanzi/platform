@@ -39,7 +39,7 @@ class AdminUserRequest extends FormRequest
             ];
         }
         return [
-            'name' => 'required|max:20',
+            'name' => 'required|max:50',
             'password' => $passwordRule,
             'status' => [
                 Rule::in($status_in),

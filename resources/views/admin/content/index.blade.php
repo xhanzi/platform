@@ -22,7 +22,7 @@
             </form>
         </div>
         <div class="layui-card-body">
-            <table class="layui-table" lay-data="{url:'{{ route('admin::content.list', ['entity' => $entity]) }}?{{ request()->getQueryString() }}', page:true, limit:20, id:'test', toolbar:'<div><a href=\'{{ route('admin::content.create', ['entity' => $entity]) }}\'><i class=\'layui-icon layui-icon-add-1\'></i>新增{{ $entityModel->name }}</a></div>'}" lay-filter="test">
+            <table class="layui-table" lay-data="{url:'{{ route('admin::content.list', ['entity' => $entity]) }}?{{ request()->getQueryString() }}', page:true, limit:50, id:'test', toolbar:'<div><a href=\'{{ route('admin::content.create', ['entity' => $entity]) }}\'><i class=\'layui-icon layui-icon-add-1\'></i>新增{{ $entityModel->name }}</a></div>'}" lay-filter="test">
                 <thead>
                 <tr>
                     <th lay-data="{width:50, type:'checkbox'}"></th>
@@ -57,9 +57,7 @@
 <script type="text/html" id="action">
     <a href="<% d.editUrl %>" class="layui-table-link" title="编辑"><i class="layui-icon layui-icon-edit"></i></a>
     <a href="javascript:;" class="layui-table-link" title="删除" style="margin-left: 10px" onclick="deleteMenu('<% d.deleteUrl %>')"><i class="layui-icon layui-icon-delete"></i></a>
-    @if($entityModel->enable_comment != 0) // 只有配置了允许评论才会出现评论入口
-    <a href="<% d.commentListUrl %>" class="layui-table-link" title="评论列表" style="margin-left: 10px"><i class="layui-icon layui-icon-reply-fill"></i></a>
-    @endif
+    @if($entityModel->enable_comment != 0)<a href="<% d.commentListUrl %>" class="layui-table-link" title="评论列表" style="margin-left: 10px"><i class="layui-icon layui-icon-reply-fill"></i></a>@endif
     @foreach(App\Model\Admin\Content::$actionField as $k => $v)
     <a href="<% d.{{$k}} %>" class="layui-table-link" title="{{ $v['description'] }}" style="margin-left: 5px">{{ $v['title'] }}</a>
     @endforeach

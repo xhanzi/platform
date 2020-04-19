@@ -27,7 +27,7 @@ class ConfigRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'name' => 'required|max:20',
+            'name' => 'required|max:50',
             'key' => ['required', 'max:100', 'regex:/^[\w]+$/'],
             'value' => 'max:2048',
             'type' => [
@@ -54,7 +54,7 @@ class ConfigRequest extends FormRequest
     {
         return [
             'name.required' => '名称不能为空',
-            'name.max' => '名称长度不能大于20',
+            'name.max' => '名称长度不能大于50',
             'key.regex' => '标识符非法'
         ];
     }

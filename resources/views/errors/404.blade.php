@@ -2,15 +2,15 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <title>学汉字 | xhanzi.com</title>
-    <meta name="keywords" content="学汉字 | xhanzi.com">
-    <meta name="description" content="学汉字 | xhanzi.com">
+    <title>LightCMS</title>
+    <meta name="keywords" content="LightCMS">
+    <meta name="description" content="LightCMS">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <!--meta name="format-detection" content="telephone=no"-->
+    <meta name="format-detection" content="telephone=no">
 
     <link rel="stylesheet" href="/public/vendor/layui-v2.4.5/css/layui.css" media="all">
     <style>

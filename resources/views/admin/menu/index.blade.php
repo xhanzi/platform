@@ -34,7 +34,7 @@
             </form>
         </div>
         <div class="layui-card-body">
-            <table class="layui-table" lay-data="{url:'{{ route('admin::menu.list') }}?{{ request()->getQueryString() }}', page:true, limit:20, id:'test', toolbar:'<div><a href=\'{{ route('admin::menu.create') }}\'><i class=\'layui-icon layui-icon-add-1\'></i>新增菜单</a><a href=\'javascript:;\' style=\'margin-left:15px\' id=\'discovery\'><i class=\'layui-icon layui-icon-refresh\'></i>自动更新菜单</a></div>'}" lay-filter="test">
+            <table class="layui-table" lay-data="{url:'{{ route('admin::menu.list') }}?{{ request()->getQueryString() }}', page:true, limit:50, id:'test', toolbar:'<div><a href=\'{{ route('admin::menu.create') }}\'><i class=\'layui-icon layui-icon-add-1\'></i>新增菜单</a><a href=\'javascript:;\' style=\'margin-left:15px\' id=\'discovery\'><i class=\'layui-icon layui-icon-refresh\'></i>自动更新菜单</a></div>'}" lay-filter="test">
                 <thead>
                 <tr>
                     <th lay-data="{width:50, type:'checkbox'}"></th>
