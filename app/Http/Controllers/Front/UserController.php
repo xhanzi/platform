@@ -111,7 +111,7 @@ class UserController extends BaseController
 
     public function username()
     {
-        return 'phone';
+        return 'email';
     }
 
     protected function authenticated(Request $request, $user)
@@ -132,7 +132,7 @@ class UserController extends BaseController
     {
         event(
             new Registered(
-                $user = UserRepository::create($request->only(['phone', 'password', 'name']))
+                $user = UserRepository::create($request->only(['email', 'password', 'name']))
             )
         );
 

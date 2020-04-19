@@ -8,12 +8,12 @@ namespace App\Model\Admin;
 class User extends \App\Model\Front\User
 {
     public static $listField = [
-        'phone' => '手机号',
+        'email' => 'Email',
         'statusText' => '状态'
     ];
 
     public static $searchField = [
-        'phone' => '手机号'
+        'email' => 'Email'
     ];
 
     public function comments()

@@ -31,9 +31,9 @@ class UserRequest extends FormRequest
             User::STATUS_ENABLE,
         ];
         $rule = [
-            'phone' => [
+            'email' => [
                 'required',
-                'regex:/' . Regexp::PHONE . '/',
+                'regex:/' . Regexp::EMAIL . '/',
             ],
             'status' => [
                 Rule::in($status_in),
@@ -54,8 +54,8 @@ class UserRequest extends FormRequest
     public function messages()
     {
         return [
-            'phone.required' => '手机号不能为空',
-            'phone.regex' => '手机号格式有误',
+            'email.required' => 'Email不能为空',
+            'email.regex' => 'Email格式有误',
             'password.regex' => '密码格式有误',
         ];
     }
