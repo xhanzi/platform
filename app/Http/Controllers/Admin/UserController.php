@@ -16,12 +16,11 @@ use Illuminate\View\View;
 
 class UserController extends Controller
 {
-    protected $formNames = ['email', 'status'];
+    protected $formNames = ['name', 'email', 'status'];
 
     public function __construct()
     {
         parent::__construct();
-
         $this->breadcrumb[] = ['title' => '学生列表', 'url' => route('admin::user.index')];
     }
 

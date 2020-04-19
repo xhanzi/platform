@@ -2,9 +2,7 @@
 
 @section('content')
     <div class="layui-card">
-
         @include('admin.breadcrumb')
-
         <div class="layui-card-body">
             <form class="layui-form" action="@if(isset($id)){{ route('admin::adminUser.update', ['id' => $id]) }}@else{{ route('admin::adminUser.save') }}@endif" method="post">
                 @if(isset($id)) {{ method_field('PUT') }} @endif

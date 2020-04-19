@@ -9,9 +9,15 @@
             <form class="layui-form" action="@if(isset($id)){{ route('admin::user.update', ['id' => $id]) }}@else{{ route('admin::user.save') }}@endif" method="post">
                 @if(isset($id)) {{ method_field('PUT') }} @endif
                 <div class="layui-form-item">
+                    <label class="layui-form-label">名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="name" required lay-verify="required" autocomplete="off" class="layui-input" value="{{ $model->name ?? '' }}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
                     <label class="layui-form-label">Email</label>
                     <div class="layui-input-block">
-                        <input type="text" name="email" required  lay-verify="required" autocomplete="off" class="layui-input" value="{{ $model->email ?? ''  }}">
+                        <input type="text" name="email" required lay-verify="required" autocomplete="off" class="layui-input" value="{{ $model->email ?? '' }}">
                     </div>
                 </div>
                     @if(!isset($id))

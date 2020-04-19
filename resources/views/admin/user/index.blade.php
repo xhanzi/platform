@@ -75,7 +75,6 @@
                         });
                     }
                 });
-
                 layer.close(index);
             });
         }
