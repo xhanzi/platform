@@ -69,7 +69,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    LightCMS
+                    XHANZI
                 </div>
                 <div class="m-b-md">
                     @foreach($entities as $entity)

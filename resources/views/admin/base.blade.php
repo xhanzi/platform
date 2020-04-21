@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>@isset($breadcrumb){{ last($breadcrumb)['title'] }}@endisset - {{ config('app.name') }}</title>
     <link rel="stylesheet" href="/public/vendor/layui-v2.4.5/css/layui.css" media="all">
-    <link rel="stylesheet" href="/public/admin/css/lightCMSAdmin.css" media="all">
+    <link rel="stylesheet" href="/public/admin/css/Admin.css" media="all">
     @yield('css')
 </head>
 <body class="layui-layout-body">

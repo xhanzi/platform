@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <title>LightCMS</title>
-    <meta name="keywords" content="LightCMS">
-    <meta name="description" content="LightCMS">
+    <title>XHANZI</title>
+    <meta name="keywords" content="xhanzi">
+    <meta name="description" content="xhanzi">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">

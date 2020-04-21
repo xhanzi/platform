@@ -1,10 +1,4 @@
 <?php
-/**
- * Date: 2019/4/3 Time: 14:36
- *
- * @author  Eddy <cumtsjh@163.com>
- * @version v1.0.0
- */
 
 namespace App\Model\Front;
 
