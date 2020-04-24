@@ -1,4 +1,4 @@
-online.xhanzi.com
+online.xhanzi.com:80, online.xhanzi.com:443
 
 root /xhanzi/app/public
 gzip
@@ -12,4 +12,4 @@ header / -Server
 log /xhanzi/data/access.log
 errors /xhanzi/data/errors.log
 on startup php-fpm --nodaemonize
-tls info@xhanzi.com #/xhanzi/data/public.pem /xhanzi/data/private.pem
+tls /xhanzi/data/xhanzi.cer /xhanzi/data/xhanzi.key
