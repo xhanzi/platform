@@ -12,4 +12,4 @@ header / -Server
 log /xhanzi/data/access.log
 errors /xhanzi/data/errors.log
 on startup php-fpm --nodaemonize
-tls /xhanzi/data/public.pem /xhanzi/data/private.pem
+tls info@xhanzi.com #/xhanzi/data/public.pem /xhanzi/data/private.pem
