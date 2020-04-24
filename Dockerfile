@@ -10,6 +10,7 @@ WORKDIR /xhanzi/app
 VOLUME /xhanzi/data
 COPY . /xhanzi/app
 RUN chown -R www-data:www-data /xhanzi
+COPY /xhanzi/data/env /xhanzi/app/.env
 
 RUN composer install \
     && composer update  \
