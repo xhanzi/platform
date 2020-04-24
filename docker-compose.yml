@@ -1,4 +1,4 @@
-version: "2"
+version: '2'
 
 services:
   app:
@@ -12,7 +12,7 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - /root/xhanzi_data:/xhanzi/data
+      - ../xhanzi_data:/xhanzi/data
     domainname: online.xhanzi.com
     networks:
       - online
