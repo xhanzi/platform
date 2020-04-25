@@ -7,9 +7,6 @@ services:
     container_name: online
     restart: unless-stopped
     tty: true
-    environment:
-      SERVICE_NAME: app
-      SERVICE_TAGS: dev
     working_dir: /var/www/html
     volumes:
       - .:/var/www/html
