@@ -13,5 +13,4 @@ yarn-error.log
 /.phpintel
 /public/upload/
 /composer.lock
-/storage/*.db
-/offline
+/database/database.sqlite3

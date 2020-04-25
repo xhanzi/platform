@@ -8,8 +8,6 @@ services:
     restart: unless-stopped
     tty: true
     working_dir: /var/www/html
-    volumes:
-      - .:/var/www/html
     networks:
       - xhanzi
 
