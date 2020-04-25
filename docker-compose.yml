@@ -4,8 +4,8 @@ services:
   app:
     build: .
     image: xhanzi/online
-    restart: unless-stopped
     container_name: online
+    restart: unless-stopped
     tty: true
     environment:
       SERVICE_NAME: app
@@ -13,7 +13,6 @@ services:
     working_dir: /var/www/html
     volumes:
       - .:/var/www/html
-      - ../xhanzi_data/database.sqlite3:/var/www/html/database/database.sqlite3
     networks:
       - xhanzi
 
@@ -27,6 +26,7 @@ services:
       - 443:443
     volumes:
       - .:/var/www/html
+      - ../xhanzi_data/database.sqlite3:/var/www/html/database/database.sqlite3
       - ../xhanzi_data/conf.d:/etc/nginx/conf.d
       - ../xhanzi_data/ssl:/etc/nginx/ssl
       - ../xhanzi_data/log:/var/log/nginx
