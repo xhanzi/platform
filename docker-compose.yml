@@ -1,13 +1,38 @@
-version: '2'
+version: '3'
 
 services:
   app:
     build: .
-    image: online
-    restart: always
+    image: xhanzi/online
+    restart: unless-stopped
     container_name: online
+    tty: true
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+      - ../xhanzi/database.sqlite3:/var/www/html/database/database.sqlite3
+    network:
+      - xhanzi
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    restart: unless-stopped
+    tty: true
     ports:
       - 80:80
       - 443:443
     volumes:
-      - ../xhanzi_data:/xhanzi/data:rw,delegated
+      - .:/var/www/html
+      - ../xhanzi_data/conf.d:/etc/nginx/conf.d
+      - ../xhanzi_data/ssl:/etc/nginx/ssl
+      - ../xhanzi_data/log:/var/log/nginx:ro
+    network:
+      - xhanzi
+
+networks:
+  xhanzi:
+    driver: bridge
