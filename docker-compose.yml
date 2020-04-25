@@ -13,8 +13,8 @@ services:
     working_dir: /var/www/html
     volumes:
       - .:/var/www/html
-      - ../xhanzi/database.sqlite3:/var/www/html/database/database.sqlite3
-    network:
+      - ../xhanzi_data/database.sqlite3:/var/www/html/database/database.sqlite3
+    networks:
       - xhanzi
 
   nginx:
@@ -29,8 +29,8 @@ services:
       - .:/var/www/html
       - ../xhanzi_data/conf.d:/etc/nginx/conf.d
       - ../xhanzi_data/ssl:/etc/nginx/ssl
-      - ../xhanzi_data/log:/var/log/nginx:ro
-    network:
+      - ../xhanzi_data/log:/var/log/nginx
+    networks:
       - xhanzi
 
 networks:
