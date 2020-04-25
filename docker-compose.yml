@@ -2,9 +2,7 @@ version: '2'
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     image: online
     restart: always
     container_name: online
@@ -12,11 +10,4 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - ../xhanzi_data:/xhanzi/data
-    domainname: online.xhanzi.com
-    networks:
-      - online
-
-networks:
-  online:
-    driver: bridge
+      - ../xhanzi_data:/xhanzi/data:rw,delegated
