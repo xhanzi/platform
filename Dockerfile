@@ -9,7 +9,6 @@ RUN apk add --update --no-cache zlib-dev curl libpng-dev oniguruma-dev php7-gd c
 VOLUME /xhanzi/data
 WORKDIR /xhanzi/app
 COPY . .
-COPY /xhanzi/data/env ./.env
 RUN chown -R www-data:www-data /xhanzi
 RUN composer install && composer update && composer upgrade && npm i
 
