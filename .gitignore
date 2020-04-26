@@ -2,10 +2,10 @@ src/node_modules
 src/public/hot
 src/public/storage
 src/vendor
-src/Homestead.json
-src/Homestead.yaml
+src/Homestead.*
 src/.env
-src/public/upload/
+src/public/upload
 src/composer.lock
 *.log
+*.key
 /postgres/data
