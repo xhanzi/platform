@@ -1,33 +1,86 @@
 version: '3'
 
-services:
-  app:
-    build: .
-    image: xhanzi/online
-    container_name: online
-    restart: unless-stopped
-    tty: true
-    working_dir: /var/www/html
-    networks:
-      - xhanzi
-
-  nginx:
-    image: nginx:alpine
-    container_name: nginx
-    restart: unless-stopped
-    tty: true
-    ports:
-      - 80:80
-      - 443:443
-    volumes:
-      - .:/var/www/html
-      - ../xhanzi_data/database.sqlite3:/var/www/html/database/database.sqlite3
-      - ../xhanzi_data/conf.d:/etc/nginx/conf.d
-      - ../xhanzi_data/ssl:/etc/nginx/ssl
-      - ../xhanzi_data/log:/var/log/nginx
-    networks:
-      - xhanzi
-
 networks:
   xhanzi:
     driver: bridge
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./src:/var/www/html
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/ssl:/etc/nginx/ssl
+      - ./nginx/log:/var/log/nginx
+    depends_on:
+      - php
+      - pgsql
+    networks:
+      - xhanzi
+
+  pgsql:
+    image: postgres:alpine
+    container_name: postgres
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=xhanzi
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=platform
+      - SERVICE_TAGS=dev
+      - SERVICE_NAME=pgsql
+    networks:
+      - xhanzi
+
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "9000:9000"
+    networks:
+      - xhanzi
+
+  composer:
+    image: composer:latest
+    container_name: composer
+    volumes:
+      - ./src:/var/www/html
+    working_dir: /var/www/html
+    depends_on:
+      - php
+    networks:
+      - xhanzi
+
+  npm:
+    image: node:13-alpine
+    container_name: npm
+    volumes:
+      - ./src:/var/www/html
+    working_dir: /var/www/html
+    entrypoint: ['npm']
+
+  artisan:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: artisan
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - pgsql
+    working_dir: /var/www/html
+    entrypoint: ['php', '/var/www/html/artisan']
+    networks:
+      - xhanzi
