@@ -1,9 +1,0 @@
-preset: psr2
-
-finder:
-  exclude:
-    - "public"
-    - "resources"
-    - "database"
-  name:
-    - "*.php"

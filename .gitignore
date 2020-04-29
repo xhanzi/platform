@@ -9,3 +9,5 @@ src/composer.lock
 *.log
 *.key
 /postgres/data
+*.sqlite3
+.DS_Store
