@@ -29,40 +29,8 @@ services:
     volumes:
       - ./sqlite3:/var/www/sqlite3
       - ./src:/var/www/html
+      - ./logs:/var/www/html/storage/logs
     ports:
       - 9000:9000
     networks:
       - xhanzi
-
-  composer:
-    image: composer:latest
-    container_name: composer
-    volumes:
-      - ./src:/var/www/html
-    working_dir: /var/www/html
-    depends_on:
-      - php
-    networks:
-      - xhanzi
-
-#  npm:
-#    image: node:13-alpine
-#    container_name: npm
-#    volumes:
-#      - ./src:/var/www/html
-#    working_dir: /var/www/html
-#    entrypoint: ['npm']
-
-#  artisan:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-#    container_name: artisan
-#    volumes:
-#      - ./src:/var/www/html
-#    depends_on:
-#      - pgsql
-#    working_dir: /var/www/html
-#    entrypoint: ['php', '/var/www/html/artisan']
-#    networks:
-#      - xhanzi

@@ -11,3 +11,4 @@ src/composer.lock
 /postgres/data
 *.sqlite3
 .DS_Store
+.gitignore
